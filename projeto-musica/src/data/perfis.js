@@ -55,7 +55,7 @@ export const perfis = [
     id: "felipe",
     rota: "/felipe",
     nome: "Felipe",
-    estilo: "Bedroom pop, MPB e rock psicodélico: sons suaves, nostálgicos e cheios de sintetizador.",
+    estilo: "Bedroom pop, MPB e Love Metal",
     cor: "#ff6ec7",
     musicas: [
       {
