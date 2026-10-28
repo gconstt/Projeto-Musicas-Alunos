@@ -28,7 +28,7 @@ function PaginaPerfil({ indice }) {
 
       <Sticker />
         <main className="content" key={perfil.id}>
-          <Tabs />
+          <Tabs />  
           <Hero perfil={perfil} numero={indice + 1} total={perfis.length} />
 
           <h2 className="section-title">Músicas favoritas</h2>
