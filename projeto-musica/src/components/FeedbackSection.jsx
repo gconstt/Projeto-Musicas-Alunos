@@ -72,7 +72,7 @@ export default function FeedbackSection() {
             />
             <input 
               type="text" 
-              placeholder="Artista / Banda" 
+              placeholder="Seu nome" 
               value={artistaSugestao} 
               onChange={(e) => setArtistaSugestao(e.target.value)} 
               required 
