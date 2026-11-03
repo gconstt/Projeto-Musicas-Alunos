@@ -1,14 +1,3 @@
-// ============================================================
-//  DADOS DOS PERFIS  (edite aqui para mudar o conteúdo do site)
-//
-//  Campos de cada música:
-//   titulo, artista, album, ano, gravadora, generos[]  -> aparecem na ficha
-//   desc      -> descrição da música/álbum
-//   opiniao   -> "Por que eu gosto" (só aparece se for preenchido)
-//   link      -> link da música no Spotify (hoje é uma busca; troque pelo link direto)
-//   capa      -> caminho da imagem, ex: "img/psychosocial.jpg" (vazio = usa public/img/<titulo>.jpg)
-//   cor / corArtista / corDesc / capaCor -> cores do card
-// ============================================================
 const spotify = (q) => "https://open.spotify.com/search/" + encodeURIComponent(q);
 
 export const REPO_URL = "https://github.com/gconstt/Projeto-Musicas-Alunos.git";
@@ -22,35 +11,37 @@ export const perfis = [
     cor: "#ffc94d",
     musicas: [
       {
+        id: "g1",
         titulo: "Psychosocial", artista: "Slipknot",
         album: "All Hope Is Gone", ano: 2008, gravadora: "Roadrunner Records",
         generos: ["Heavy metal", "Groove metal"],
         cor: "#ffc94d", corArtista: "#ffe08a", corDesc: "#ffc94d", capaCor: "#8a7a4a",
-        capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRos9aii9V9LbltNVcAk5aiLQBD5biXPrmT_nROXTSNSQ&s=10  ", link: spotify("Psychosocial Slipknot"),
+        capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRos9aii9V9LbltNVcAk5aiLQBD5biXPrmT_nROXTSNSQ&s=10", link: spotify("Psychosocial Slipknot"),
         desc: "All Hope Is Gone é o quarto álbum de estúdio da banda norte-americana de metal Slipknot, lançado em 26 de agosto de 2008 pela Roadrunner Records.",
-        opiniao: "",
+        opiniao: "Uso de percussão pesado e riffs marcantes.",
       },
       {
+        id: "g2",
         titulo: "Blind", artista: "Korn",
         album: "Korn", ano: 1994, gravadora: "Immortal / Epic",
         generos: ["Nu metal"],
         cor: "#ff6ec7", corArtista: "#ff6ec7", corDesc: "#ff6ec7", capaCor: "#a33a3a",
         capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1wmdhWWUh-JrO8q2GNOo9OrW9n1acKRsa1ATy9X0QJQ&s=10", link: spotify("Blind Korn"),
         desc: "\"Blind\" é o primeiro single e a faixa de abertura do álbum de estreia homônimo da banda americana de nu metal Korn, lançado em agosto de 1994.",
-        opiniao: "",
+        opiniao: "O ponto de virada definitivo do nu metal nos anos 90.",
       },
       {
+        id: "g3",
         titulo: "Helena", artista: "My Chemical Romance",
-        album: "The Black Parade", ano: 2006, gravadora: "Roswell / Capitol Records",
-        generos: ["Rock alternativo"],
-        cor: "#7e1919ff", corArtista: "#ffffffff", corDesc: "#ffffffff", capaCor: "#ff0000ff",
+        album: "Three Cheers for Sweet Revenge", ano: 2004, gravadora: "Reprise Records",
+        generos: ["Rock alternativo", "Post-hardcore"],
+        cor: "#ff4d4d", corArtista: "#ffffff", corDesc: "#ffffff", capaCor: "#800000",
         capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIrDJx5ZEjNWSHT8g4EvoN-zt-PZOEf6tb6Vx7li57-w&s=10", link: spotify("Helena My Chemical Romance"),
-        desc: "The Black Parade é o terceiro álbum de estúdio da banda americana de rock alternativo My Chemical Romance, lançado em 20 de outubro de 2006 pelas gravadoras Roswell e Capitol Records.",
-        opiniao: "",
+        desc: "Faixa emocionante dedicada à avó dos integrantes Gerard e Mikey Way, misturando melodia e energia.",
+        opiniao: "Abertura marcante do álbum e um clássico do rock anos 2000.",
       },
     ],
   },
-
   {
     id: "felipe",
     rota: "/felipe",
@@ -59,36 +50,38 @@ export const perfis = [
     cor: "#ff6ec7",
     musicas: [
       {
+        id: "f1",
         titulo: "1Night", artista: "Cuco",
-        album: "wannabewithu", ano: 2016, gravadora: "",
+        album: "wannabewithu", ano: 2016, gravadora: "Independente",
         generos: ["Bedroom pop", "Indie"],
         cor: "#ff6ec7", corArtista: "#ff6ec7", corDesc: "#ff6ec7", capaCor: "#c0398f",
         capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMTJO6FO0cc7MtbePJv9Qok_1jFO0zdeQ7fGSgQdSmog&s=10", link: spotify("1Night Cuco"),
-        desc: "wannabewithu é o álbum de estreia (frequentemente chamado de mixtape) do cantor e compositor norte-americano Cuco (Omar Banos), lançado originalmente em 2016.",
-        opiniao: "",
+        desc: "wannabewithu é o álbum de estreia do cantor e compositor norte-americano Cuco, lançado originalmente em 2016.",
+        opiniao: "Vibe relaxante e lo-fi impecável.",
       },
       {
+        id: "f2",
         titulo: "Fantasia", artista: "Chico Buarque",
         album: "Vida", ano: 1980, gravadora: "Philips Records",
         generos: ["MPB"],
         cor: "#9dff9d", corArtista: "#9dff9d", corDesc: "#b8f5b8", capaCor: "#a88b5a",
         capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6R5qA5Afe5l1c44kBqE8Keg6bocT9MUg-2i4_L_plfw&s=10", link: spotify("Fantasia Chico Buarque"),
-        desc: "Vida (1980) é o décimo primeiro álbum de estúdio do cantor e compositor brasileiro Chico Buarque, lançado pela gravadora Philips Records. O disco marca uma fase de transição e maior maturidade existencialista na carreira do artista, aos 36 anos.",
-        opiniao: "",
+        desc: "Vida (1980) marca uma fase de transição e maior maturidade existencialista na carreira do artista.",
+        opiniao: "Letra poética com arranjos finos.",
       },
       {
-        titulo: "Join Me In Death", artista: "Him",
+        id: "f3",
+        titulo: "Join Me In Death", artista: "HIM",
         album: "Razorblade Romance", ano: 1999, gravadora: "BMG / HMC",
         generos: ["Love metal", "Gothic rock"],
-        cor: "#f875e2ff", corArtista: "#f865f8ff", corDesc: "#ff92f0ff", capaCor: "#8333e6ff",
+        cor: "#f875e2", corArtista: "#f865f8", corDesc: "#ff92f0", capaCor: "#8333e6",
         capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd_Hmf5S8hIR2x0BPtimxQ3BXoFKzCmK81w_LTrtYsCg&s=10", link: spotify("Join me in death Him"),
-        desc: "é o single mais famoso da banda finlandesa de rock gótico HIM (His Infernal Majesty), lançada oficialmente em dezembro de 1999 no álbum Razorblade Romance.",
-        opiniao: "",
+        desc: "Single mais famoso da banda finlandesa de rock gótico HIM, lançado no álbum Razorblade Romance.",
+        opiniao: "Melodia gótica inesquecível.",
       },
     ],
   },
-
-  { 
+  {
     id: "miguel",
     rota: "/miguel",
     nome: "Miguel R",
@@ -96,31 +89,34 @@ export const perfis = [
     cor: "#9db8ff",
     musicas: [
       {
+        id: "m1",
         titulo: "Chove Chuva", artista: "Jorge Ben Jor",
         album: "Samba Esquema Novo", ano: 1963, gravadora: "Philips",
         generos: ["Samba", "MPB"],
         cor: "#e8d59a", corArtista: "#e8d59a", corDesc: "#e0b24d", capaCor: "#b5623a",
         capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZhFAk1kcnzPQABSyLKBkVWdvcSkMj34ftUR6JNAcmRw&s=10", link: spotify("Chove Chuva Jorge Ben Jor"),
-        desc: "A música fala sobre amor e o medo de perder a pessoa amada. Tem um ritmo animado, misturando samba e MPB, e transmite sentimentos de carinho e paixão. 🤍🎶",
-        opiniao: "",
+        desc: "A música fala sobre amor e o medo de perder a pessoa amada com um balanço contagiante.",
+        opiniao: "Clássico atemporal da música brasileira.",
       },
       {
+        id: "m2",
         titulo: "Fly-day Chinatown", artista: "Yasuha",
-        album: "Flapper", ano: 1981, gravadora: "",
+        album: "Flapper", ano: 1981, gravadora: "Polydor",
         generos: ["City pop"],
         cor: "#9db8ff", corArtista: "#9db8ff", corDesc: "#8fb0ff", capaCor: "#4a4a7a",
         capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDd7Zh9S6mwwu7eQoJ5NnhHKqtoiAoti574mtMbrQwkg&s=10", link: spotify("Fly-day Chinatown Yasuha"),
-        desc: "A música tem um ritmo animado e retrô, transmitindo a sensação de diversão e liberdade na vida noturna da cidade. 🌃🎶",
-        opiniao: "",
+        desc: "A música tem um ritmo animado e retrô, transmitindo a sensação de diversão e liberdade na vida noturna.",
+        opiniao: "Sintetizadores e energia dos anos 80 japoneses.",
       },
       {
+        id: "m3",
         titulo: "nuts", artista: "Lil Peep",
-        album: "", ano: "", gravadora: "",
+        album: "LIVE FOREVER", ano: 2015, gravadora: "Independente",
         generos: ["Emo rap", "Cloud rap"],
         cor: "#ff8fa3", corArtista: "#ffb3c1", corDesc: "#ff8fa3", capaCor: "#5a3a3a",
         capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWpZndfb6jpqYBO42sX9lPy5EBq6sXeXWa2cGSGlF1qg&s=10", link: spotify("nuts Lil Peep"),
-        desc: "A música tem uma melodia marcante e uma vibe própria. Para descrever melhor seu significado, preciso saber o artista principal. 🎧💗",
-        opiniao: "",
+        desc: "Melodia marcante e atmosférica, um dos destaques do início da carreira de Lil Peep.",
+        opiniao: "Atmosfera única e envolvente.",
       },
     ],
   },

@@ -1,56 +1,81 @@
+import { useState, useEffect } from "react";
 import Cover from "./Cover.jsx";
 
-function Linha({ rotulo, valor }) {
-  if (!valor) return null;
-  return (
-    <>
-      <dt>{rotulo}</dt>
-      <dd>{valor}</dd>
-    </>
-  );
-}
+export default function SongCard({ musica, indice }) {
+  const [likes, setLikes] = useState(0);
+  const [userRating, setUserRating] = useState(0);
 
-// Card de uma música. Capa, título e botão levam para o Spotify.
-export default function SongCard({ musica: m, indice }) {
+  useEffect(() => {
+    const savedLikes = localStorage.getItem(`likes_${musica.id}`) || 0;
+    const savedRating = localStorage.getItem(`rating_${musica.id}`) || 0;
+    setLikes(Number(savedLikes));
+    setUserRating(Number(savedRating));
+  }, [musica.id]);
+
+  const handleLike = () => {
+    const newLikes = likes + 1;
+    setLikes(newLikes);
+    localStorage.setItem(`likes_${musica.id}`, newLikes);
+  };
+
+  const handleRate = (stars) => {
+    setUserRating(stars);
+    localStorage.setItem(`rating_${musica.id}`, stars);
+  };
+
   return (
     <article className="song fade-in" style={{ animationDelay: `${indice * 0.1}s` }}>
       <span className="song-number">FAIXA {String(indice + 1).padStart(2, "0")}</span>
 
-      <a href={m.link} target="_blank" rel="noopener noreferrer" title="Abrir no Spotify">
-        <Cover musica={m} />
+      <a href={musica.link} target="_blank" rel="noopener noreferrer" title="Abrir no Spotify">
+        <Cover musica={musica} />
       </a>
 
       <div className="song-names">
-        <a href={m.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
-          <span className="song-title" style={{ color: m.cor }}>{m.titulo}</span>
+        <a href={musica.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+          <span className="song-title" style={{ color: musica.cor }}>{musica.titulo}</span>
         </a>
-        <span className="song-artist" style={{ color: m.corArtista }}>{m.artista}</span>
+        <span className="song-artist" style={{ color: musica.corArtista }}>{musica.artista}</span>
       </div>
 
       <div className="song-tags">
-        {m.generos.map((g) => (
-          <span key={g} className="tag" style={{ color: m.cor, borderColor: m.cor }}>{g}</span>
+        {musica.generos.map((g) => (
+          <span key={g} className="tag" style={{ color: musica.cor, borderColor: musica.cor }}>{g}</span>
         ))}
       </div>
 
       <dl className="meta">
-        <Linha rotulo="Álbum" valor={m.album} />
-        <Linha rotulo="Ano" valor={m.ano} />
-        <Linha rotulo="Gravadora" valor={m.gravadora} />
+        {musica.album && <><dt>Álbum</dt><dd>{musica.album}</dd></>}
+        {musica.ano && <><dt>Ano</dt><dd>{musica.ano}</dd></>}
+        {musica.gravadora && <><dt>Gravadora</dt><dd>{musica.gravadora}</dd></>}
       </dl>
 
-      <p className="song-desc" style={{ color: m.corDesc }}>{m.desc}</p>
+      <p className="song-desc" style={{ color: musica.corDesc }}>{musica.desc}</p>
 
-      {m.opiniao && (
-        <p className="opiniao" style={{ color: m.cor }}>
-          <b>Por que eu gosto</b>
-          {m.opiniao}
-        </p>
-      )}
+      {/* Interatividade: Avaliação por estrelas */}
+      <div className="rating-area">
+        <span>Sua Nota: </span>
+        {[1, 2, 3, 4, 5].map((star) => (
+          <button
+            key={star}
+            className={`star-btn ${star <= userRating ? "active" : ""}`}
+            onClick={() => handleRate(star)}
+            title={`Avaliar com ${star} estrelas`}
+          >
+            ★
+          </button>
+        ))}
+      </div>
 
-      <a className="listen" href={m.link} target="_blank" rel="noopener noreferrer">
-        ▶ Ouvir no Spotify
-      </a>
+      {/* Interatividade: Botão de Curtir */}
+      <div className="interactive-actions">
+        <button className="like-btn" onClick={handleLike}>
+          ❤️ {likes} Curtidas
+        </button>
+        <a className="listen" href={musica.link} target="_blank" rel="noopener noreferrer">
+          ▶ Spotify
+        </a>
+      </div>
     </article>
   );
 }

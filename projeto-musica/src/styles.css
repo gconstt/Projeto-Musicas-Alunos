@@ -1,8 +1,16 @@
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
 
-:root { --accent: #ffc94d; }
+:root { 
+  --accent: #ffc94d; 
+}
 
-html, body { min-height: 100%; }
+html, body { 
+  min-height: 100%; 
+}
 
 body {
   background: radial-gradient(ellipse at top, #3a3a3a 0%, #111 55%, #000 100%) fixed, #000;
@@ -11,24 +19,14 @@ body {
   min-height: 100vh;
 }
 
-/* ---------- Sticker ---------- */
-.sticker-area {
-  height: clamp(72px, 11vh, 100px);
+/* ---------- App & Site Layout ---------- */
+.app, .site-wrapper {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 8px;
+  flex-direction: column;
 }
-.sticker {
-  width: clamp(56px, 8vh, 76px);
-  height: clamp(56px, 8vh, 76px);
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,.6));
-  transition: transform .6s ease;
-  cursor: pointer;
-}
-.sticker:hover { transform: rotate(360deg) scale(1.08); }
 
-/* ---------- Caixa principal ---------- */
 .site {
   width: 100%;
   flex: 1;
@@ -36,258 +34,368 @@ body {
   flex-direction: column;
 }
 
+/* ---------- Topbar & Navegação ---------- */
 .topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
-  padding: 8px clamp(16px, 4vw, 56px);
-  background: rgba(0,0,0,.7);
-  border-bottom: 1px solid rgba(255,255,255,.35);
-  font-size: 15.5px;
+  gap: 16px;
+  padding: 10px clamp(16px, 4vw, 56px);
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 15px;
   font-weight: 700;
 }
-.brand { letter-spacing: 1px; font-size: 17px; }
-.subtitle { font-size: 14.5px; text-align: right; }
 
+.brand { 
+  letter-spacing: 1px; 
+  font-size: 17px; 
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-item {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+  font-size: 13.5px;
+}
+
+.nav-item:hover, .nav-item.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-item.highlight {
+  border: 1px solid var(--accent, #ffc94d);
+  color: var(--accent, #ffc94d);
+}
+
+/* ---------- Sticker (Tamanho ajustado e proporcional) ---------- */
+.sticker-area {
+  height: clamp(60px, 8vh, 85px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.sticker {
+  width: clamp(50px, 7vw, 70px);
+  height: clamp(50px, 7vw, 70px);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.sticker:hover { 
+  transform: rotate(360deg) scale(1.08); 
+}
+
+/* ---------- Conteúdo Principal ---------- */
 .content {
   flex: 1;
   width: 100%;
-  padding: 12px clamp(16px, 5vw, 80px) 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px clamp(16px, 4vw, 60px) 24px;
 }
 
-/* ---------- Abas ---------- */
-.tabs {
-  display: flex;
-  justify-content: space-around;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-.tab {
-  color: #fff;
-  font-weight: 700;
-  font-size: 17px;
-  text-decoration: none;
-  padding: 4px 8px;
-  transition: color .2s, transform .2s;
-}
-.tab:hover { transform: translateY(-1px); text-decoration: underline; }
-.tab.active { color: #777; pointer-events: none; text-decoration: none; }
-
-/* ---------- Hero do perfil ---------- */
+/* ---------- Hero ---------- */
 .hero {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   padding: 14px 18px;
   margin-bottom: 20px;
-  border: 1px solid rgba(255,255,255,.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-left: 4px solid var(--accent);
-  background: rgba(255,255,255,.04);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
 }
+
 .avatar {
-  width: 60px;
-  height: 60px;
+  width: 52px;
+  height: 52px;
   flex-shrink: 0;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-size: 33.5px;
+  font-size: 26px;
   font-weight: 800;
   color: #000;
   background: var(--accent);
-  box-shadow: 0 0 0 4px rgba(255,255,255,.12);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12);
 }
+
 .hero-info { flex: 1; min-width: 0; }
-.hero-kicker { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #aaa; font-weight: 700; }
-.hero-name { font-size: 24px; margin: 2px 0 4px; }
-.hero-estilo { font-size: 15px; color: #ddd; margin-bottom: 10px; }
+.hero-kicker { font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; color: #aaa; font-weight: 700; }
+.hero-name { font-size: 20px; margin: 2px 0; }
+.hero-estilo { font-size: 14px; color: #ddd; margin-bottom: 8px; }
+
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tag {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  padding: 3px 9px;
+  padding: 2px 8px;
   border-radius: 999px;
   border: 1px solid var(--accent);
   color: var(--accent);
 }
-.hero-stats { display: flex; gap: 22px; text-align: center; }
-.stat strong { display: block; font-size: 24px; color: var(--accent); }
-.stat span { font-size: 13px; color: #bbb; text-transform: uppercase; letter-spacing: 1px; }
 
-.section-title { text-align: center; font-size: 18px; margin-bottom: 16px; }
+.hero-stats { display: flex; gap: 18px; text-align: center; }
+.stat strong { display: block; font-size: 20px; color: var(--accent); }
+.stat span { font-size: 11px; color: #bbb; text-transform: uppercase; letter-spacing: 1px; }
 
-/* ---------- Músicas ---------- */
+/* ---------- Seção de Músicas ---------- */
+.section-title { 
+  text-align: center; 
+  font-size: 18px; 
+  margin-bottom: 16px; 
+}
+
 .songs {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
 }
+
 .song {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 4px clamp(16px, 2.5vw, 40px) 8px;
-  border-left: 1px solid rgba(255,255,255,.5);
-  transition: background .2s, transform .2s;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  transition: background 0.2s, transform 0.2s;
 }
-.song:first-child { border-left: none; }
-.song:hover { background: rgba(255,255,255,.05); transform: translateY(-3px); }
 
-.song-number { font-size: 13px; font-weight: 800; letter-spacing: 2px; color: #888; }
+.song:hover { 
+  background: rgba(255, 255, 255, 0.05); 
+  transform: translateY(-2px); 
+}
+
+.song-number { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; color: #888; }
 
 .cover {
   width: 100%;
   aspect-ratio: 1 / 1;
-  max-width: 200px;
+  max-width: 180px;
   align-self: center;
   object-fit: cover;
-  border-radius: 4px;
-  box-shadow: 0 8px 20px rgba(0,0,0,.6);
-  position: relative;
-  overflow: hidden;
-}
-/* disco decorativo no placeholder da capa */
-.cover.placeholder::after {
-  content: "♪";
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-size: 64px;
-  color: rgba(255,255,255,.55);
+  border-radius: 6px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
 }
 
-.song-names { display: flex; flex-direction: column; gap: 5px; }
-.song-title  { font-weight: 800; font-size: 21.5px; }
-.song-artist { font-weight: 700; font-size: 17px; border-top: 1px solid currentColor; padding-top: 5px; }
+.song-names { display: flex; flex-direction: column; gap: 3px; }
+.song-title { font-weight: 800; font-size: 18px; }
+.song-artist { font-weight: 700; font-size: 15px; border-top: 1px solid currentColor; padding-top: 4px; }
 
-.song-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-.song-tags .tag { font-size: 12px; padding: 2px 8px; }
+.song-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.song-tags .tag { font-size: 11px; padding: 1px 6px; }
 
-.meta { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; font-size: 15.5px; }
+.meta { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; font-size: 13.5px; }
 .meta dt { color: #999; font-weight: 700; }
 .meta dd { color: #eee; }
 
-.song-desc { font-size: 15.5px; font-weight: 700; line-height: 1.45; }
+.song-desc { font-size: 13.5px; font-weight: 600; line-height: 1.4; color: #ddd; }
 
-.opiniao {
-  font-size: 14.5px;
-  font-style: italic;
-  line-height: 1.4;
-  color: #ddd;
-  padding-left: 10px;
-  border-left: 2px solid currentColor;
+/* Avaliações e Curtidas */
+.rating-area {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 13px;
 }
-.opiniao b { font-style: normal; display: block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #999; margin-bottom: 2px; }
+
+.star-btn {
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.star-btn.active, .star-btn:hover {
+  color: #ffc94d;
+}
+
+.interactive-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.like-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 12px;
+  transition: background 0.2s;
+}
+
+.like-btn:hover { background: rgba(255, 255, 255, 0.2); }
 
 .listen {
-  align-self: flex-start;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
+  gap: 4px;
+  padding: 5px 12px;
   border-radius: 999px;
   border: 1px solid #1db954;
   color: #1db954;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
   text-decoration: none;
-  transition: background .2s, color .2s;
+  transition: background 0.2s, color 0.2s;
 }
+
 .listen:hover { background: #1db954; color: #000; }
 
-/* ---------- Player ---------- */
-.play-btn {
-  margin-top: auto;
-  align-self: flex-start;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 999px;
-  background: #1db954;
-  color: #000;
-  font: inherit;
-  font-size: 15.5px;
-  font-weight: 800;
-  cursor: pointer;
-  transition: transform .2s, filter .2s;
-}
-.play-btn:hover { transform: scale(1.06); filter: brightness(1.1); }
-.play-btn:focus-visible, .stop-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-
-.player { margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
-.player iframe { border: 0; border-radius: 12px; display: block; }
-.player audio { width: 100%; }
-.stop-btn {
-  align-self: flex-start;
-  background: none;
-  border: 1px solid rgba(255,255,255,.4);
-  border-radius: 999px;
-  color: #ddd;
-  font: inherit;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 4px 12px;
-  cursor: pointer;
-}
-.stop-btn:hover { background: rgba(255,255,255,.1); }
-
-/* ---------- Navegação entre perfis ---------- */
+/* ---------- Pager & Navegação de Perfis ---------- */
 .pager {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 24px;
   padding-top: 14px;
-  border-top: 1px solid rgba(255,255,255,.2);
-  font-size: 15.5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
   font-weight: 700;
 }
-.pager a { color: #fff; text-decoration: none; padding: 6px 10px; border: 1px solid rgba(255,255,255,.35); transition: background .2s; }
-.pager a:hover { background: rgba(255,255,255,.1); }
 
-/* ---------- Animação ---------- */
-.fade-in { animation: fade .45s ease both; }
-@keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.pager a { 
+  color: #fff; 
+  text-decoration: none; 
+  padding: 5px 12px; 
+  border: 1px solid rgba(255, 255, 255, 0.3); 
+  border-radius: 6px;
+  transition: background 0.2s; 
+}
+
+.pager a:hover { background: rgba(255, 255, 255, 0.1); }
+
+/* ---------- Sugestões & Feedback ---------- */
+.feedback-container {
+  padding: 20px clamp(16px, 4vw, 60px);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.subtext { color: #aaa; margin-bottom: 20px; font-size: 14px; }
+
+.interactive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.interactive-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.interactive-form input,
+.interactive-form select,
+.interactive-form textarea {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-family: inherit;
+  font-size: 13.5px;
+}
+
+.submit-btn {
+  background: #1db954;
+  color: #000;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 13.5px;
+}
+
+.submit-btn:hover { filter: brightness(1.1); }
+
+.suggestions-list ul { list-style: none; padding: 0; }
+.suggestions-list li {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 13px;
+}
+
+.comments-list { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.comment-item {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.comment-header { display: flex; justify-content: space-between; font-size: 11px; color: #aaa; }
+.empty { color: #777; font-size: 13px; }
 
 /* ---------- Rodapé ---------- */
 .footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px clamp(16px, 4vw, 56px);
-  font-size: 14px;
+  padding: 10px clamp(16px, 4vw, 56px);
+  font-size: 13px;
   font-weight: 700;
-  background: rgba(0,0,0,.55);
-  border-top: 1px solid rgba(255,255,255,.35);
+  background: rgba(0,0,0,0.55);
+  border-top: 1px solid rgba(255,255,255,0.25);
+  margin-top: auto;
 }
+
 .repo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 22px;
-  transition: transform .2s;
+  width: 24px;
+  height: 20px;
+  transition: transform 0.2s;
 }
-.repo:hover { transform: scale(1.2) rotate(8deg); }
+
+.repo:hover { transform: scale(1.15); }
+
+/* ---------- Animações ---------- */
+.fade-in { animation: fade 0.4s ease both; }
+@keyframes fade { 
+  from { opacity: 0; transform: translateY(6px); } 
+  to { opacity: 1; transform: none; } 
+}
 
 /* ---------- Responsivo ---------- */
-@media (max-width: 800px) {
-  .songs { grid-template-columns: 1fr; gap: 26px; }
-  .song { border-left: none; border-top: 1px solid rgba(255,255,255,.5); padding: 22px 6px 8px; }
-  .song:first-child { border-top: none; padding-top: 4px; }
+@media (max-width: 650px) {
+  .topbar { flex-direction: column; align-items: flex-start; }
   .hero { flex-direction: column; text-align: center; }
   .tags { justify-content: center; }
-  .topbar { flex-direction: column; align-items: flex-start; }
-  .subtitle { text-align: left; }
-}
-
-/* ---------- Wrapper do React (recebe a cor de destaque do perfil) ---------- */
-.app {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
