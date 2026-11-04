@@ -19,6 +19,7 @@ export const perfis = [
         capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRos9aii9V9LbltNVcAk5aiLQBD5biXPrmT_nROXTSNSQ&s=10", link: spotify("Psychosocial Slipknot"),
         desc: "All Hope Is Gone é o quarto álbum de estúdio da banda norte-americana de metal Slipknot, lançado em 26 de agosto de 2008 pela Roadrunner Records.",
         opiniao: "Uso de percussão pesado e riffs marcantes.",
+        previewUrl: "/public/audio/psychosocial.mp3",
       },
       {
         id: "g2",
@@ -29,6 +30,8 @@ export const perfis = [
         capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1wmdhWWUh-JrO8q2GNOo9OrW9n1acKRsa1ATy9X0QJQ&s=10", link: spotify("Blind Korn"),
         desc: "\"Blind\" é o primeiro single e a faixa de abertura do álbum de estreia homônimo da banda americana de nu metal Korn, lançado em agosto de 1994.",
         opiniao: "O ponto de virada definitivo do nu metal nos anos 90.",
+        previewUrl: "/public/audio/blind.mp3",
+        
       },
       {
         id: "g3",
@@ -39,6 +42,7 @@ export const perfis = [
         capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIrDJx5ZEjNWSHT8g4EvoN-zt-PZOEf6tb6Vx7li57-w&s=10", link: spotify("Helena My Chemical Romance"),
         desc: "Faixa emocionante dedicada à avó dos integrantes Gerard e Mikey Way, misturando melodia e energia.",
         opiniao: "Abertura marcante do álbum e um clássico do rock anos 2000.",
+         previewUrl: "/public/audio/helena.mp3",
       },
     ],
   },
@@ -58,6 +62,7 @@ export const perfis = [
         capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMTJO6FO0cc7MtbePJv9Qok_1jFO0zdeQ7fGSgQdSmog&s=10", link: spotify("1Night Cuco"),
         desc: "wannabewithu é o álbum de estreia do cantor e compositor norte-americano Cuco, lançado originalmente em 2016.",
         opiniao: "Vibe relaxante e lo-fi impecável.",
+        previewUrl: "/public/audio/1night.mp3",
       },
       {
         id: "f2",
@@ -68,6 +73,7 @@ export const perfis = [
         capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6R5qA5Afe5l1c44kBqE8Keg6bocT9MUg-2i4_L_plfw&s=10", link: spotify("Fantasia Chico Buarque"),
         desc: "Vida (1980) marca uma fase de transição e maior maturidade existencialista na carreira do artista.",
         opiniao: "Letra poética com arranjos finos.",
+        previewUrl: "/public/audio/fantasia.mp3",
       },
       {
         id: "f3",
@@ -78,6 +84,7 @@ export const perfis = [
         capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd_Hmf5S8hIR2x0BPtimxQ3BXoFKzCmK81w_LTrtYsCg&s=10", link: spotify("Join me in death Him"),
         desc: "Single mais famoso da banda finlandesa de rock gótico HIM, lançado no álbum Razorblade Romance.",
         opiniao: "Melodia gótica inesquecível.",
+        previewUrl: "/public/audio/joinme.mp3",
       },
     ],
   },
@@ -97,6 +104,7 @@ export const perfis = [
         capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZhFAk1kcnzPQABSyLKBkVWdvcSkMj34ftUR6JNAcmRw&s=10", link: spotify("Chove Chuva Jorge Ben Jor"),
         desc: "A música fala sobre amor e o medo de perder a pessoa amada com um balanço contagiante.",
         opiniao: "Clássico atemporal da música brasileira.",
+        previewUrl: "/public/audio/chovechuva.mp3",
       },
       {
         id: "m2",
@@ -107,6 +115,7 @@ export const perfis = [
         capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDd7Zh9S6mwwu7eQoJ5NnhHKqtoiAoti574mtMbrQwkg&s=10", link: spotify("Fly-day Chinatown Yasuha"),
         desc: "A música tem um ritmo animado e retrô, transmitindo a sensação de diversão e liberdade na vida noturna.",
         opiniao: "Sintetizadores e energia dos anos 80 japoneses.",
+        previewUrl: "/public/audio/chinatown.mp3",
       },
       {
         id: "m3",
@@ -117,6 +126,7 @@ export const perfis = [
         capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWpZndfb6jpqYBO42sX9lPy5EBq6sXeXWa2cGSGlF1qg&s=10", link: spotify("nuts Lil Peep"),
         desc: "Melodia marcante e atmosférica, um dos destaques do início da carreira de Lil Peep.",
         opiniao: "Atmosfera única e envolvente.",
+        previewUrl: "/public/audio/nuts.mp3",
       },
     ],
   },
