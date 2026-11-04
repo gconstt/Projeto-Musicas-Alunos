@@ -38,7 +38,7 @@ export const perfis = [
         titulo: "Helena", artista: "My Chemical Romance",
         album: "Three Cheers for Sweet Revenge", ano: 2004, gravadora: "Reprise Records",
         generos: ["Rock alternativo", "Post-hardcore"],
-        cor: "#ff4d4d", corArtista: "#ffffff", corDesc: "#ffffff", capaCor: "#800000",
+        cor: "#ff4d4d", corArtista: "#ffffff", corDesc: "#ffffff", capaCor: "#990000ff",
         capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIrDJx5ZEjNWSHT8g4EvoN-zt-PZOEf6tb6Vx7li57-w&s=10", link: spotify("Helena My Chemical Romance"),
         desc: "Faixa emocionante dedicada à avó dos integrantes Gerard e Mikey Way, misturando melodia e energia.",
         opiniao: "Abertura marcante do álbum e um clássico do rock anos 2000.",
